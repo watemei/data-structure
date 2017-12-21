@@ -20,12 +20,20 @@ public class ArraySort {
     // 插入排序---------------希尔排序(不稳定)
     public static void shellSort(int[] table) {
         for (int delta = table.length / 2; delta > 0; delta /= 2) {// 若干趟扫描控制增量，增量减半
+            System.out.println("*******"+delta+"**********");
             for (int i = delta; i < table.length; i++) {// 一趟分若干组，每组进行直接插入排序
                 int temp = table[i], j;
                 // 每组元素相距delta远，寻找插入位置
                 for (j = i - delta; j >= 0 && temp < table[j]; j -= delta)
 					table[j + delta] = table[j];
                 table[j + delta] = temp;// 插入元素
+                System.out.println("=======");
+                System.out.println("index j " +j+" , "+temp);
+                for(int c : table){
+                    System.out.print(c+" , ");
+                }
+                System.out.println();
+                System.out.println("index i "+i);
             }
 		}
 	}
